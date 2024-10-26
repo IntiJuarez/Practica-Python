@@ -57,11 +57,18 @@ def crear():
 
     miCursor=miConexion.cursor()
 
-    miCursor.execute("INSERT INTO DATOSUSUARIOS VALUES(NULL, '" + miNombre.get() +
+    #-consulta un poco engorrosa-
+    """miCursor.execute("INSERT INTO DATOSUSUARIOS VALUES(NULL, '" + miNombre.get() +
         "','" + miPass.get() +
         "','" + miApellido.get() +
         "','" + miDireccion.get() + 
-        "','" + textoComentario.get("1.0", END) + "')")
+        "','" + textoComentario.get("1.0", END) + "')")"""
+    
+    #Almaceno la información de los campos en la variable datos
+    datos= miNombre.get(), miPass.get(), miApellido.get(), miDireccion.get(), textoComentario.get("1.0", END)
+    #-Consulta parametrisada-----
+    miCursor.execute("INSERT INTO DATOSUSUARIOS VALUES(NULL,?,?,?,?,?)",(datos))
+
 
     miConexion.commit()
 
@@ -94,12 +101,19 @@ def actualizar():
 
     miCursor=miConexion.cursor()
 
-    miCursor.execute("UPDATE DATOSUSUARIOS SET NOMBRE_USUARIO ='" + miNombre.get() +
+    """miCursor.execute("UPDATE DATOSUSUARIOS SET NOMBRE_USUARIO ='" + miNombre.get() +
     "', PASSWORD='" + miPass.get () +
     "', APELLIDO='" + miApellido.get() +
     "', DIRECCION='" + miDireccion.get() +
     "', COMENTARIOS='" + textoComentario.get("1.0", END) +
-    "' WHERE ID=" + miId.get())
+    "' WHERE ID=" + miId.get())"""
+
+    datos= miNombre.get(), miPass.get(), miApellido.get(), miDireccion.get(), textoComentario.get("1.0", END)
+
+    #Consulta parametrisada:
+    miCursor.execute("UPDATE DATOSUSUARIOS SET NOMBRE_USUARIO=?, PASSWORD=?, APELLIDO=?, DIRECCION=?, COMENTARIOS=?" +
+    "WHERE ID=" + miId.get(),(datos))
+    
 
     miConexion.commit()
 
