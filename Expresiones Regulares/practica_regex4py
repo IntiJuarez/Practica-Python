@@ -1,0 +1,63 @@
+import re
+
+nombre1="Sandra López"
+
+nombre2="Antonio Gómez"
+
+nombre3="sandra López"
+
+nombre4="Lara López"
+
+if re.match("Sandra", nombre3, re.IGNORECASE):
+
+    print("Hemos encontrado el nombre")
+
+else:
+
+    print("No la hemos encontrado")
+
+
+#Otra forma de filtrar la búsqueda
+
+if re.match(".ara", nombre4, re.IGNORECASE):
+
+    print("Hemos encontrado el nombre")
+
+else:
+
+    print("No la hemos encontrado")
+
+
+#Búsqueda de cadenas de texto que comiencen por números.
+
+cadena1="Jara López"
+
+cadena2="545456545"
+
+cadena3="a45454545"
+
+
+if re.match("\d", cadena2):
+
+    print("Hemos encontrado el número")
+
+else:
+
+    print("No lo hemos encontrado")
+
+
+#Función search diferente a la función match ya que, esta busca al principio de una cadena de texo
+#si cumple con el patrón de búsqueda o no se cumple. La función search busca en toda la cadena de texto
+#a ver si el patrón de búsqueda se encuentra o no se en encuentra
+
+persona1="Sandra López"
+
+persona2="Antonio Gómez"
+
+persona3="sandra López"
+
+persona4="Lara López"
+
+
+if re.search("López", nombre1, r)
+

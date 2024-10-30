@@ -1,0 +1,1 @@
+#Las funciones decoradores añaden funcionalidades a otras funciones.
