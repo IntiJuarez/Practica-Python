@@ -59,5 +59,11 @@ persona3="sandra López"
 persona4="Lara López"
 
 
-if re.search("López", nombre1, r)
+if re.search("López", persona1, re.IGNORECASE):
+
+    print("Hemos encontrado el nombre")
+
+else:
+
+    print("No lo hemos encontrado")
 
