@@ -1,4 +1,5 @@
-def compruebaMail(mailUsuario):
+
+def compruebaMail(mailUsuario:str):
 
     """
     La función compruebaMail evalúa un mail
@@ -24,7 +25,7 @@ def compruebaMail(mailUsuario):
         return False
     
     else:
-        True
+        return True
 
 
 import doctest
